@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 def fetch_crypto_prices():
     url = 'https://api.coingecko.com/api/v3/simple/price'
@@ -22,14 +23,25 @@ def update_readme(prices):
             price_line_index = i + 2
             new_price_line = f"| ${prices['bitcoin']['usd']} | ${prices['ethereum']['usd']} | ${prices['litecoin']['usd']} |\n"
             lines[price_line_index] = new_price_line
+
+            # Update the timestamp
+            timestamp_index = i + 3  # Assuming the timestamp is on the line after the price
+            current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
+            if timestamp_index < len(lines) and lines[timestamp_index].startswith('**Last Updated**'):
+                lines[timestamp_index] = f"**Last Updated:** {current_time}\n"
+            else:
+                lines.insert(timestamp_index, f"**Last Updated:** {current_time}\n")
+
             break
     else:
         # If the table is not found, append it at the end
+        current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
         lines.append("\n## Crypto Prices\n")
         lines.append("| Bitcoin | Ethereum | Litecoin |\n")
         lines.append("| ------- | -------- | -------- |\n")
         new_price_line = f"| ${prices['bitcoin']['usd']} | ${prices['ethereum']['usd']} | ${prices['litecoin']['usd']} |\n"
         lines.append(new_price_line)
+        lines.append(f"**Last Updated:** {current_time}\n")
 
     with open('README.md', 'w') as file:
         file.writelines(lines)
