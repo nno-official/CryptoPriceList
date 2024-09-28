@@ -1,4 +1,6 @@
 # Crypto Price List
 
+## Crypto Prices
 | Bitcoin | Ethereum | Litecoin |
-| $66019 | $2690.82 | $71.34 |
+| ------- | -------- | -------- |
+| $0     | $0      | $0      |
