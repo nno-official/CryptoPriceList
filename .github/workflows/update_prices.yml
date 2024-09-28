@@ -28,7 +28,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config --local user.email "naynaingoo.official@gmai.com"
+          git config --local user.email "naynaingoo.official@gmail.com"
           git config --local user.name "naynaingoo2003"
           git add README.md
           git commit -m "Update crypto prices" || echo "No changes to commit"
