@@ -3,7 +3,7 @@ name: Update Crypto Prices
 on:
   schedule:
     - cron: '*/5 * * * *'  # Runs every five minutes
-  workflow_dispatch:  # Allows manual trigger
+  workflow_dispatch:      # Allows manual trigger
 
 jobs:
   update_prices:
