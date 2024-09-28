@@ -1,26 +1,46 @@
 import requests
 
 def fetch_crypto_prices():
-    url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,litecoin&vs_currencies=usd'
-    response = requests.get(url)
+    url = 'https://api.coingecko.com/api/v3/simple/price'
+    params = {
+        'ids': 'bitcoin,ethereum,litecoin',
+        'vs_currencies': 'usd'
+    }
+    response = requests.get(url, params=params)
+    response.raise_for_status()  # Raise an error for bad status
     return response.json()
 
 def update_readme(prices):
     with open('README.md', 'r') as file:
-        readme_content = file.readlines()
+        lines = file.readlines()
 
-    # Find and replace the existing price table
-    for i, line in enumerate(readme_content):
-        if line.startswith('| Bitcoin'):
-            readme_content[i + 1] = f'| ${prices["bitcoin"]["usd"]} | ${prices["ethereum"]["usd"]} | ${prices["litecoin"]["usd"]} |\n'
+    # Locate the line with the prices table
+    for i, line in enumerate(lines):
+        if line.strip().startswith('| Bitcoin') and 'Ethereum' in line and 'Litecoin' in line:
+            # The next line is the separator (| ------- | ...)
+            # The line after that is the price row
+            price_line_index = i + 2
+            new_price_line = f"| ${prices['bitcoin']['usd']} | ${prices['ethereum']['usd']} | ${prices['litecoin']['usd']} |\n"
+            lines[price_line_index] = new_price_line
             break
+    else:
+        # If the table is not found, append it at the end
+        lines.append("\n## Crypto Prices\n")
+        lines.append("| Bitcoin | Ethereum | Litecoin |\n")
+        lines.append("| ------- | -------- | -------- |\n")
+        new_price_line = f"| ${prices['bitcoin']['usd']} | ${prices['ethereum']['usd']} | ${prices['litecoin']['usd']} |\n"
+        lines.append(new_price_line)
 
     with open('README.md', 'w') as file:
-        file.writelines(readme_content)
+        file.writelines(lines)
 
 def main():
-    prices = fetch_crypto_prices()
-    update_readme(prices)
+    try:
+        prices = fetch_crypto_prices()
+        update_readme(prices)
+        print(f"Updated prices: Bitcoin=${prices['bitcoin']['usd']}, Ethereum=${prices['ethereum']['usd']}, Litecoin=${prices['litecoin']['usd']}")
+    except Exception as e:
+        print(f"Error updating prices: {e}")
 
 if __name__ == '__main__':
     main()
