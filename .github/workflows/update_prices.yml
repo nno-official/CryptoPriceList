@@ -10,34 +10,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          ref: main           # Ensure the main branch is checked out
+          fetch-depth: 0      # Fetch all history for all branches and tags
 
+      # Step 2: Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.8'
 
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests
 
+      # Step 4: Run the price update script
       - name: Run price update script
         run: python update_prices.py
 
+      # Step 5: Get Current Date
       - name: Get Current Date
         id: get_date
         run: echo "DATE=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
 
-      - name: Commit changes
-        run: |
-          git config --local user.email "naynaingoo.official@gmail.com"
-          git config --local user.name "naynaingoo2003"
-          git add README.md
-          git commit -m "Update crypto prices on ${{ env.DATE }}" || echo "No changes to commit"
-
-      - name: Push changes
+      # Step 6: Add, Commit, and Push Changes
+      - name: Add, Commit and Push Changes
         uses: EndBug/add-and-commit@v9
         with:
+          author_name: "naynaingoo2003"                    # Replace with your GitHub username
+          author_email: "naynaingoo.official@gmail.com"    # Replace with your GitHub email
           message: "Update crypto prices on ${{ env.DATE }}"
+          branch: main                                     # Ensure changes are pushed to main
