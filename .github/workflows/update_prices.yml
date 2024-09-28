@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          ref: main  # Ensure you checkout the main branch
+          ref: main  # Ensure the main branch is checked out
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -30,16 +30,19 @@ jobs:
 
       - name: Get Current Date
         id: get_date
-        run: echo "::set-output name=DATE::$(date '+%Y-%m-%d %H:%M:%S')"
+        run: echo "DATE=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
 
       - name: Commit changes
         run: |
           git config --local user.email "naynaingoo.official@gmail.com"
           git config --local user.name "naynaingoo2003"
           git add README.md
-          git commit -m "Update crypto prices on ${{ steps.get_date.outputs.DATE }}" || echo "No changes to commit"
+          git commit -m "Update crypto prices on ${{ env.DATE }}" || echo "No changes to commit"
 
       - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
+        uses: EndBug/add-and-commit@v9
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          author_name: "Your Name"
+          author_email: "your-email@example.com"
+          message: "Update crypto prices on ${{ env.DATE }}"
+          branch: main
