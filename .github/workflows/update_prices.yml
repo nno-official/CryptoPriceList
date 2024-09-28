@@ -42,7 +42,7 @@ jobs:
       - name: Push changes
         uses: EndBug/add-and-commit@v9
         with:
-          author_name: "Your Name"
-          author_email: "your-email@example.com"
+          author_name: "naynaingoo2003"
+          author_email: "naynaingoo.official@gmail.com"
           message: "Update crypto prices on ${{ env.DATE }}"
           branch: main
