@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          ref: main  # Ensure the main branch is checked out
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -42,7 +40,4 @@ jobs:
       - name: Push changes
         uses: EndBug/add-and-commit@v9
         with:
-          author_name: "naynaingoo2003"
-          author_email: "naynaingoo.official@gmail.com"
           message: "Update crypto prices on ${{ env.DATE }}"
-          branch: main
