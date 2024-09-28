@@ -2,7 +2,7 @@ name: Update Crypto Prices
 
 on:
   schedule:
-    - cron: '5 * * * *'  # Runs every hour
+    - cron: '*/5 * * * *'  # Runs every five minutes
   workflow_dispatch:  # Allows manual trigger
 
 jobs:
@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.8'
 
@@ -26,14 +26,18 @@ jobs:
       - name: Run price update script
         run: python update_prices.py
 
+      - name: Get Current Date
+        id: get_date
+        run: echo "::set-output name=DATE::$(date '+%Y-%m-%d %H:%M:%S')"
+
       - name: Commit changes
         run: |
           git config --local user.email "naynaingoo.official@gmail.com"
           git config --local user.name "naynaingoo2003"
           git add README.md
-          git commit -m "Update crypto prices" || echo "No changes to commit"
+          git commit -m "Update crypto prices on ${{ steps.get_date.outputs.DATE }}" || echo "No changes to commit"
 
       - name: Push changes
-        run: git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
