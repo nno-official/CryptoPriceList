@@ -25,12 +25,11 @@ def update_readme(prices):
             lines[price_line_index] = new_price_line
 
             # Update the timestamp
-            timestamp_index = i + 3  # Assuming the timestamp is on the line after the price
             current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
-            if timestamp_index < len(lines) and lines[timestamp_index].startswith('**Last Updated**'):
-                lines[timestamp_index] = f"**Last Updated:** {current_time}\n"
-            else:
-                lines.insert(timestamp_index, f"**Last Updated:** {current_time}\n")
+            for j in range(len(lines)):
+                if lines[j].startswith('**Last Updated:**'):
+                    lines[j] = f"**Last Updated:** {current_time}\n"
+                    break
 
             break
     else:
