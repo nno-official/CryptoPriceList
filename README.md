@@ -3,6 +3,6 @@
 ## Crypto Prices
 | Bitcoin | Ethereum | Litecoin |
 | ------- | -------- | -------- |
-| $100853 | $3934.99 | $122.27 |
-**Last Updated:** 2024-12-12 12:51 UTC
+| $101470 | $3975.62 | $123.72 |
+**Last Updated:** 2024-12-12 13:27 UTC
 **Last Updated:** $DATE$
