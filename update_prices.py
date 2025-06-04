@@ -1,18 +1,37 @@
+from datetime import timezone, datetime
 import requests
-from datetime import datetime
+
 
 def fetch_crypto_prices():
+    """
+        Fetches the crypto prices and returns results in json
+
+    Args:
+        None
+
+    Returns:
+        dict: Return values in json of the api.
+    """
     url = 'https://api.coingecko.com/api/v3/simple/price'
     params = {
         'ids': 'bitcoin,ethereum,litecoin',
         'vs_currencies': 'usd'
     }
-    response = requests.get(url, params=params)
+    response = requests.get(url, params=params, timeout=10)
     response.raise_for_status()  # Raise an error for bad status
     return response.json()
 
 def update_readme(prices):
-    with open('README.md', 'r') as file:
+    """    Updates readme.md file with newly fetched prices
+
+    Args:
+        prices (dict): The list of fetched prices
+
+    Returns:
+        None
+    """
+        
+    with open('README.md', 'r', encoding='utf-8') as file:
         lines = file.readlines()
 
     # Locate the line with the prices table
@@ -25,16 +44,16 @@ def update_readme(prices):
             lines[price_line_index] = new_price_line
 
             # Update the timestamp
-            current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
-            for j in range(len(lines)):
-                if lines[j].startswith('**Last Updated:**'):
-                    lines[j] = f"**Last Updated:** {current_time}\n"
+            current_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+            for index, line in enumerate(lines):
+                if line.startswith("**Last Updated:**"):
+                    lines[index] = f"**Last Updated:** {current_time}\n"
                     break
 
             break
     else:
         # If the table is not found, append it at the end
-        current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
+        current_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
         lines.append("\n## Crypto Prices\n")
         lines.append("| Bitcoin | Ethereum | Litecoin |\n")
         lines.append("| ------- | -------- | -------- |\n")
@@ -42,8 +61,9 @@ def update_readme(prices):
         lines.append(new_price_line)
         lines.append(f"**Last Updated:** {current_time}\n")
 
-    with open('README.md', 'w') as file:
+    with open('README.md', 'w', encoding="utc-8") as file:
         file.writelines(lines)
+    return
 
 def main():
     try:
