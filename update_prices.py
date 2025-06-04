@@ -61,7 +61,7 @@ def update_readme(prices):
         lines.append(new_price_line)
         lines.append(f"**Last Updated:** {current_time}\n")
 
-    with open('README.md', 'w', encoding="utc-8") as file:
+    with open('README.md', 'w', encoding="utf-8") as file:
         file.writelines(lines)
     return
 
