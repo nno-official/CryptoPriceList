@@ -25,7 +25,7 @@ def update_readme(prices):
     """    Updates readme.md file with newly fetched prices
 
     Args:
-        prices (dict): The list of fetched prices
+        prices (dict): The dictionary of fetched prices
 
     Returns:
         None
