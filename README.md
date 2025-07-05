@@ -1,4 +1,3 @@
-# Crypto Price List
 
 ## Crypto Prices
 | Bitcoin | Ethereum | Litecoin |
