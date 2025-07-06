@@ -1,57 +1,88 @@
 import requests
 from datetime import datetime
+from pathlib import Path
 
-def fetch_crypto_prices():
+# --- Configuration ---
+COIN_IDS = ['bitcoin', 'ethereum', 'litecoin', 'solana', 'cardano']
+README_FILE = Path("README.md")
+START_MARKER = ""
+END_MARKER = ""
+
+def fetch_crypto_prices(coin_ids):
+    """Fetches prices for a list of cryptocurrencies from CoinGecko."""
+    print(f"Fetching prices for: {', '.join(coin_ids)}")
     url = 'https://api.coingecko.com/api/v3/simple/price'
     params = {
-        'ids': 'bitcoin,ethereum,litecoin',
+        'ids': ','.join(coin_ids),
         'vs_currencies': 'usd'
     }
-    response = requests.get(url, params=params)
-    response.raise_for_status()  # Raise an error for bad status
-    return response.json()
+    try:
+        response = requests.get(url, params=params)
+        response.raise_for_status()  # Raise an error for bad status codes
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching prices from API: {e}")
+        return None
 
-def update_readme(prices):
-    with open('README.md', 'r') as file:
-        lines = file.readlines()
+def generate_price_table(prices, coin_ids):
+    """Generates a Markdown table from the price data."""
+    if not prices:
+        return ""
 
-    # Locate the line with the prices table
-    for i, line in enumerate(lines):
-        if line.strip().startswith('| Bitcoin') and 'Ethereum' in line and 'Litecoin' in line:
-            # The next line is the separator (| ------- | ...)
-            # The line after that is the price row
-            price_line_index = i + 2
-            new_price_line = f"| ${prices['bitcoin']['usd']} | ${prices['ethereum']['usd']} | ${prices['litecoin']['usd']} |\n"
-            lines[price_line_index] = new_price_line
+    # Create the header
+    header = "| " + " | ".join([coin.capitalize() for coin in coin_ids]) + " |"
+    separator = "| " + " | ".join(["-------"] * len(coin_ids)) + " |"
 
-            # Update the timestamp
-            current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
-            for j in range(len(lines)):
-                if lines[j].startswith('**Last Updated:**'):
-                    lines[j] = f"**Last Updated:** {current_time}\n"
-                    break
+    # Create the price row, handling missing data gracefully
+    price_cells = []
+    for coin in coin_ids:
+        price = prices.get(coin, {}).get('usd')
+        price_cells.append(f"${price:,.2f}" if price else "N/A")
+    price_row = "| " + " | ".join(price_cells) + " |"
+    
+    # Get the timestamp
+    current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
+    timestamp = f"\n**Last Updated:** {current_time}"
 
-            break
-    else:
-        # If the table is not found, append it at the end
-        current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
-        lines.append("\n## Crypto Prices\n")
-        lines.append("| Bitcoin | Ethereum | Litecoin |\n")
-        lines.append("| ------- | -------- | -------- |\n")
-        new_price_line = f"| ${prices['bitcoin']['usd']} | ${prices['ethereum']['usd']} | ${prices['litecoin']['usd']} |\n"
-        lines.append(new_price_line)
-        lines.append(f"**Last Updated:** {current_time}\n")
+    return "\n".join([header, separator, price_row, timestamp])
 
-    with open('README.md', 'w') as file:
-        file.writelines(lines)
+def update_readme(table_content):
+    """Updates the README.md file with the new table."""
+    try:
+        content = README_FILE.read_text()
+        
+        # Find the markers
+        start_index = content.find(START_MARKER)
+        end_index = content.find(END_MARKER)
+
+        if start_index == -1 or end_index == -1:
+            print("Error: Could not find the markers in README.md. Please add them.")
+            return
+
+        # Build the new README content
+        new_content = (
+            content[:start_index + len(START_MARKER)] +
+            "\n" +
+            table_content +
+            "\n" +
+            content[end_index:]
+        )
+
+        README_FILE.write_text(new_content)
+        print("README.md updated successfully.")
+
+    except FileNotFoundError:
+        print(f"Error: {README_FILE} not found.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
 
 def main():
-    try:
-        prices = fetch_crypto_prices()
-        update_readme(prices)
-        print(f"Updated prices: Bitcoin=${prices['bitcoin']['usd']}, Ethereum=${prices['ethereum']['usd']}, Litecoin=${prices['litecoin']['usd']}")
-    except Exception as e:
-        print(f"Error updating prices: {e}")
+    """Main function to run the script."""
+    prices = fetch_crypto_prices(COIN_IDS)
+    if prices:
+        price_table = generate_price_table(prices, COIN_IDS)
+        if price_table:
+            update_readme(price_table)
 
 if __name__ == '__main__':
     main()
