@@ -2,24 +2,28 @@ name: Update Crypto Prices
 
 on:
   schedule:
-    - cron: '4,9,14,19,24,29,34,39,44,49,54,59 * * * *'  # Runs every five minutes
+    - cron: '4,9,14,19,24,29,34,39,44,49,54,59 * * * *' # Runs every five minutes
   workflow_dispatch:      # Allows manual trigger
 
 jobs:
   update_prices:
     runs-on: ubuntu-latest
+    
+    # Add permissions for the job
+    permissions:
+      contents: write # Allows the action to push to the repository
 
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # Use the latest version
         with:
-          ref: main           # Ensure the main branch is checked out
-          fetch-depth: 0      # Fetch all history for all branches and tags
+          ref: main         # Ensure the main branch is checked out
+          fetch-depth: 0    # Fetch all history for all branches and tags
 
       # Step 2: Set up Python environment
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5 # Use the latest version
         with:
           python-version: '3.8'
 
@@ -36,13 +40,15 @@ jobs:
       # Step 5: Get Current Date
       - name: Get Current Date
         id: get_date
-        run: echo "DATE=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+        run: echo "DATE=$(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_ENV
 
       # Step 6: Add, Commit, and Push Changes
       - name: Add, Commit and Push Changes
         uses: EndBug/add-and-commit@v9
         with:
-          author_name: "naynaingoo2003"                    # Replace with your GitHub username
-          author_email: "naynaingoo.official@gmail.com"    # Replace with your GitHub email
-          message: "Update crypto prices on ${{ env.DATE }}"
-          branch: main                                     # Ensure changes are pushed to main
+          author_name: "naynaingoo2003"
+          author_email: "naynaingoo.official@gmail.com"
+          message: "Update crypto prices at ${{ env.DATE }}"
+          branch: main
+          add: 'README.md' # Be explicit about what file to check
+          add_options: '--allow-empty' # Create a commit even if there are no changes
