@@ -1,5 +1,6 @@
 
 ## Crypto Prices
+[![Update Crypto Prices](https://github.com/naynaingoo2003/CryptoPriceList/actions/workflows/update_prices.yml/badge.svg)](https://github.com/naynaingoo2003/CryptoPriceList/actions/workflows/update_prices.yml)
 | Bitcoin | Ethereum | Litecoin |
 | ------- | -------- | -------- |
 | $108241 | $2518.67 | $87.28 |
