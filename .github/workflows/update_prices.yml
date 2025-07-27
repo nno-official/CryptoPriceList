@@ -2,13 +2,13 @@ name: Update Crypto Prices
 
 on:
   schedule:
-    - cron: '4,9,14,19,24,29,34,39,44,49,54,59 * * * *'
+    - cron: "4,9,14,19,24,29,34,39,44,49,54,59 * * * *"
   workflow_dispatch:
 
 jobs:
   update_prices:
     runs-on: ubuntu-latest
-    
+
     permissions:
       contents: write
 
@@ -23,29 +23,21 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.8'
+          python-version: "3.8"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: Run price update script
+      - name: Run enhanced price update script
         run: python update_prices.py
 
-      # Step 5: Get Current Date
-      - name: Get Current Date
-        id: get_date
-        run: echo "DATE=$(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_ENV
-
-      # Step 6: Add, Commit and Push Changes (Corrected)
-      - name: Add, Commit and Push Changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          # The message for the commit
-          message: "Update crypto prices at ${{ env.DATE }}"
-          
-          # Add the --allow-empty flag to the git commit command
-          commit: --allow-empty
-          
-          # The action will commit and push to the branch checked out in Step 1
+      # Step 4: Commit and push changes if README was updated
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md price_history.json
+          git diff --staged --quiet || git commit -m "🚀 Update crypto prices with enhanced table [$(date '+%Y-%m-%d %H:%M UTC')]"
+          git push
