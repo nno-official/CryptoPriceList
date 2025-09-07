@@ -41,42 +41,42 @@ A beautiful, automated cryptocurrency price tracker that displays live prices wi
 
 <tr>
 <td><strong>Bitcoin</strong></td>
-<td align="right"><code>$110,664</code></td>
-<td align="right" style="color: #ff0000"><strong>-0.06%</strong></td>
+<td align="right"><code>$110,710</code></td>
+<td align="right" style="color: #ff0000"><strong>-0.02%</strong></td>
 <td align="center">📉</td>
 <td align="center">⚡ STABLE</td>
 </tr>
 
 <tr>
 <td><strong>Ethereum</strong></td>
-<td align="right"><code>$4,300</code></td>
-<td align="right" style="color: #ff0000"><strong>-0.16%</strong></td>
-<td align="center">📉</td>
-<td align="center">⚡ STABLE</td>
+<td align="right"><code>$4,302</code></td>
+<td align="right" style="color: #00ff00"><strong>+0.11%</strong></td>
+<td align="center">📈</td>
+<td align="center">✅ UP</td>
 </tr>
 
 <tr>
 <td><strong>Litecoin</strong></td>
-<td align="right"><code>$112.92</code></td>
-<td align="right" style="color: #00ff00"><strong>+1.25%</strong></td>
+<td align="right"><code>$113.08</code></td>
+<td align="right" style="color: #00ff00"><strong>+1.51%</strong></td>
 <td align="center">📈</td>
 <td align="center">✅ UP</td>
 </tr>
 
 <tr>
 <td><strong>Solana</strong></td>
-<td align="right"><code>$202.89</code></td>
-<td align="right" style="color: #ff0000"><strong>-0.01%</strong></td>
-<td align="center">📉</td>
-<td align="center">⚡ STABLE</td>
+<td align="right"><code>$203.05</code></td>
+<td align="right" style="color: #00ff00"><strong>+0.17%</strong></td>
+<td align="center">📈</td>
+<td align="center">✅ UP</td>
 </tr>
 
 <tr>
 <td><strong>Cardano</strong></td>
-<td align="right"><code>$0.8268</code></td>
-<td align="right" style="color: #ff0000"><strong>-0.04%</strong></td>
-<td align="center">📉</td>
-<td align="center">⚡ STABLE</td>
+<td align="right"><code>$0.8263</code></td>
+<td align="right" style="color: #00ff00"><strong>+0.22%</strong></td>
+<td align="center">📈</td>
+<td align="center">✅ UP</td>
 </tr>
 
 </tbody>
@@ -84,8 +84,8 @@ A beautiful, automated cryptocurrency price tracker that displays live prices wi
 
 ---
 
-**📊 Market Summary:** 5/5 coins tracked | **📈 Avg 24h Change:** +0.20%  
-**🕐 Last Updated:** 2025-09-07 05:23 UTC | **🔄 Auto-updates every ~5 minutes**
+**📊 Market Summary:** 5/5 coins tracked | **📈 Avg 24h Change:** +0.40%  
+**🕐 Last Updated:** 2025-09-07 05:35 UTC | **🔄 Auto-updates every ~5 minutes**
 
 *Data provided by [CoinGecko API](https://www.coingecko.com/en/api) 🦎*
 
