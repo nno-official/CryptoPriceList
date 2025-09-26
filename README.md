@@ -41,40 +41,40 @@ A beautiful, automated cryptocurrency price tracker that displays live prices wi
 
 <tr>
 <td><strong>Bitcoin</strong></td>
-<td align="right"><code>$109,228</code></td>
-<td align="right" style="color: #ff0000"><strong>-2.26%</strong></td>
+<td align="right"><code>$108,958</code></td>
+<td align="right" style="color: #ff0000"><strong>-2.51%</strong></td>
 <td align="center">📉</td>
 <td align="center">❄️ COLD</td>
 </tr>
 
 <tr>
 <td><strong>Ethereum</strong></td>
-<td align="right"><code>$3,887</code></td>
-<td align="right" style="color: #ff0000"><strong>-3.68%</strong></td>
+<td align="right"><code>$3,892</code></td>
+<td align="right" style="color: #ff0000"><strong>-3.40%</strong></td>
 <td align="center">📉</td>
 <td align="center">❄️ COLD</td>
 </tr>
 
 <tr>
 <td><strong>Litecoin</strong></td>
-<td align="right"><code>$101.57</code></td>
-<td align="right" style="color: #ff0000"><strong>-2.21%</strong></td>
+<td align="right"><code>$101.60</code></td>
+<td align="right" style="color: #ff0000"><strong>-2.20%</strong></td>
 <td align="center">📉</td>
 <td align="center">❄️ COLD</td>
 </tr>
 
 <tr>
 <td><strong>Solana</strong></td>
-<td align="right"><code>$192.88</code></td>
-<td align="right" style="color: #ff0000"><strong>-5.11%</strong></td>
+<td align="right"><code>$192.78</code></td>
+<td align="right" style="color: #ff0000"><strong>-5.13%</strong></td>
 <td align="center">💥</td>
 <td align="center">❄️ COLD</td>
 </tr>
 
 <tr>
 <td><strong>Cardano</strong></td>
-<td align="right"><code>$0.7648</code></td>
-<td align="right" style="color: #ff0000"><strong>-3.07%</strong></td>
+<td align="right"><code>$0.7634</code></td>
+<td align="right" style="color: #ff0000"><strong>-3.11%</strong></td>
 <td align="center">📉</td>
 <td align="center">❄️ COLD</td>
 </tr>
@@ -85,7 +85,7 @@ A beautiful, automated cryptocurrency price tracker that displays live prices wi
 ---
 
 **📊 Market Summary:** 5/5 coins tracked | **📈 Avg 24h Change:** -3.27%  
-**🕐 Last Updated:** 2025-09-26 10:16 UTC | **🔄 Auto-updates every ~5 minutes**
+**🕐 Last Updated:** 2025-09-26 10:37 UTC | **🔄 Auto-updates every ~5 minutes**
 
 *Data provided by [CoinGecko API](https://www.coingecko.com/en/api) 🦎*
 
