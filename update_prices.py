@@ -11,6 +11,34 @@ START_MARKER = '<!-- PRICE_TABLE_START -->'
 END_MARKER = '<!-- PRICE_TABLE_END -->'
 PRICE_HISTORY_FILE = 'price_history.json'
 
+
+# New: Price Alert Configuration
+
+PRICE_ALERTS = {
+    'bitcoin': {
+        'above': 200000,
+        'below': 100000,
+        '24hr_change_above': 5,    # Alert if 24h change > 5%
+        '24hr_change_below': -5,   # Alert if 24h change < -5%
+    },
+
+    'ethereum': {
+        'above': 3000, 
+        'below': 2000,
+        '24h_change_above': 8,
+        '24h_change_below': -8
+    }
+}
+
+# NEW: Trend Analysis Settings
+TREND_SETTINGS = {
+    'short_term_period': 5,    # Last 5 price points for short-term trend
+    'medium_term_period': 10,  # Last 10 for medium-term trend
+    'strong_trend_threshold': 2.0  # % change for strong trend classification
+}
+
+
+
 def fetch_crypto_prices(coin_ids):
     """Fetches prices and 24h change data for cryptocurrencies from CoinGecko."""
     print(f"Fetching prices for: {', '.join(coin_ids)}")
@@ -29,6 +57,74 @@ def fetch_crypto_prices(coin_ids):
         return None
 
 
+def check_price_alerts(prices):
+    """Check if any prices hit alert thresholds and generate notifications."""
+    alerts = []
+    
+    for coin, data in prices.items():
+        if coin not in PRICE_ALERTS:
+            continue
+            
+        price = data.get('usd')
+        change_24h = data.get('usd_24h_change', 0)
+        alerts_config = PRICE_ALERTS[coin]
+        
+        if price is None:
+            continue
+        
+        # Check price level alerts
+        if price >= alerts_config['above']:
+            alerts.append({
+                'type': 'PRICE_ABOVE',
+                'coin': coin,
+                'price': price,
+                'threshold': alerts_config['above'],
+                'message': f"🚀 {coin.title()} surged above ${alerts_config['above']:,.0f} (Current: ${price:,.2f})"
+            })
+        
+        elif price <= alerts_config['below']:
+            alerts.append({
+                'type': 'PRICE_BELOW', 
+                'coin': coin,
+                'price': price,
+                'threshold': alerts_config['below'],
+                'message': f"🔻 {coin.title()} dropped below ${alerts_config['below']:,.0f} (Current: ${price:,.2f})"
+            })
+        
+        # Check 24h change alerts
+        if change_24h >= alerts_config.get('24h_change_above', 10):
+            alerts.append({
+                'type': '24H_SURGE',
+                'coin': coin,
+                'change': change_24h,
+                'threshold': alerts_config['24h_change_above'],
+                'message': f"📈 {coin.title()} surged {change_24h:+.1f}% in 24h (Above {alerts_config['24h_change_above']}% threshold)"
+            })
+        
+        elif change_24h <= alerts_config.get('24h_change_below', -10):
+            alerts.append({
+                'type': '24H_CRASH',
+                'coin': coin, 
+                'change': change_24h,
+                'threshold': alerts_config['24h_change_below'],
+                'message': f"📉 {coin.title()} crashed {change_24h:+.1f}% in 24h (Below {alerts_config['24h_change_below']}% threshold)"
+            })
+    
+    return alerts
+
+def display_alerts(alerts):
+    """Display price alerts in a formatted way."""
+    if not alerts:
+        print("✅ No price alerts triggered")
+        return
+    
+    print("\n🔔 PRICE ALERTS 🔔")
+    print("=" * 50)
+    
+    for i, alert in enumerate(alerts, 1):
+        print(f"{i}. {alert['message']}")
+    
+    print("=" * 50)
 
 def load_price_history():
     """Load previous price data for trend calculation."""
@@ -241,6 +337,10 @@ def main():
     if prices:
         # Save price history for trend analysis
         save_price_history(prices)
+
+        # Check and display price alerts
+        alerts = check_price_alerts(prices)
+        display_alerts(alerts)
         
         # Generate enhanced table
         table_content = generate_enhanced_table(prices, COIN_IDS)
