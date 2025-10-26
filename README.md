@@ -41,40 +41,40 @@ A beautiful, automated cryptocurrency price tracker that displays live prices wi
 
 <tr>
 <td><strong>Bitcoin</strong></td>
-<td align="right"><code>$111,739</code></td>
-<td align="right" style="color: #ff0000"><strong>-0.05%</strong></td>
-<td align="center">📉</td>
-<td align="center">⚡ STABLE</td>
+<td align="right"><code>$112,483</code></td>
+<td align="right" style="color: #00ff00"><strong>+0.71%</strong></td>
+<td align="center">📈</td>
+<td align="center">✅ UP</td>
 </tr>
 
 <tr>
 <td><strong>Ethereum</strong></td>
-<td align="right"><code>$3,959</code></td>
-<td align="right" style="color: #00ff00"><strong>+0.15%</strong></td>
+<td align="right"><code>$3,993</code></td>
+<td align="right" style="color: #00ff00"><strong>+1.15%</strong></td>
 <td align="center">📈</td>
 <td align="center">✅ UP</td>
 </tr>
 
 <tr>
 <td><strong>Litecoin</strong></td>
-<td align="right"><code>$97.66</code></td>
-<td align="right" style="color: #00ff00"><strong>+1.34%</strong></td>
+<td align="right"><code>$98.09</code></td>
+<td align="right" style="color: #00ff00"><strong>+2.06%</strong></td>
+<td align="center">📈</td>
+<td align="center">🔥 HOT</td>
+</tr>
+
+<tr>
+<td><strong>Solana</strong></td>
+<td align="right"><code>$195.22</code></td>
+<td align="right" style="color: #00ff00"><strong>+0.65%</strong></td>
 <td align="center">📈</td>
 <td align="center">✅ UP</td>
 </tr>
 
 <tr>
-<td><strong>Solana</strong></td>
-<td align="right"><code>$194.09</code></td>
-<td align="right" style="color: #ff0000"><strong>-0.32%</strong></td>
-<td align="center">📉</td>
-<td align="center">⚡ STABLE</td>
-</tr>
-
-<tr>
 <td><strong>Cardano</strong></td>
-<td align="right"><code>$0.6560</code></td>
-<td align="right" style="color: #00ff00"><strong>+0.28%</strong></td>
+<td align="right"><code>$0.6602</code></td>
+<td align="right" style="color: #00ff00"><strong>+1.15%</strong></td>
 <td align="center">📈</td>
 <td align="center">✅ UP</td>
 </tr>
@@ -84,8 +84,8 @@ A beautiful, automated cryptocurrency price tracker that displays live prices wi
 
 ---
 
-**📊 Market Summary:** 5/5 coins tracked | **📈 Avg 24h Change:** +0.28%  
-**🕐 Last Updated:** 2025-10-26 09:13 UTC | **🔄 Auto-updates every ~5 minutes**
+**📊 Market Summary:** 5/5 coins tracked | **📈 Avg 24h Change:** +1.14%  
+**🕐 Last Updated:** 2025-10-26 09:28 UTC | **🔄 Auto-updates every ~5 minutes**
 
 *Data provided by [CoinGecko API](https://www.coingecko.com/en/api) 🦎*
 
