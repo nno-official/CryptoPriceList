@@ -41,40 +41,40 @@ A beautiful, automated cryptocurrency price tracker that displays live prices wi
 
 <tr>
 <td><strong>Bitcoin</strong></td>
-<td align="right"><code>$82,420</code></td>
-<td align="right" style="color: #ff0000"><strong>-10.22%</strong></td>
+<td align="right"><code>$82,424</code></td>
+<td align="right" style="color: #ff0000"><strong>-10.11%</strong></td>
 <td align="center">💥</td>
 <td align="center">❄️ COLD</td>
 </tr>
 
 <tr>
 <td><strong>Ethereum</strong></td>
-<td align="right"><code>$2,698</code></td>
-<td align="right" style="color: #ff0000"><strong>-10.40%</strong></td>
+<td align="right"><code>$2,699</code></td>
+<td align="right" style="color: #ff0000"><strong>-10.23%</strong></td>
 <td align="center">💥</td>
 <td align="center">❄️ COLD</td>
 </tr>
 
 <tr>
 <td><strong>Litecoin</strong></td>
-<td align="right"><code>$83.05</code></td>
-<td align="right" style="color: #ff0000"><strong>-10.17%</strong></td>
+<td align="right"><code>$83.26</code></td>
+<td align="right" style="color: #ff0000"><strong>-9.84%</strong></td>
 <td align="center">💥</td>
 <td align="center">❄️ COLD</td>
 </tr>
 
 <tr>
 <td><strong>Solana</strong></td>
-<td align="right"><code>$125.51</code></td>
-<td align="right" style="color: #ff0000"><strong>-11.54%</strong></td>
+<td align="right"><code>$125.44</code></td>
+<td align="right" style="color: #ff0000"><strong>-11.49%</strong></td>
 <td align="center">💥</td>
 <td align="center">❄️ COLD</td>
 </tr>
 
 <tr>
 <td><strong>Cardano</strong></td>
-<td align="right"><code>$0.4042</code></td>
-<td align="right" style="color: #ff0000"><strong>-13.28%</strong></td>
+<td align="right"><code>$0.4045</code></td>
+<td align="right" style="color: #ff0000"><strong>-12.98%</strong></td>
 <td align="center">💥</td>
 <td align="center">❄️ COLD</td>
 </tr>
@@ -84,8 +84,8 @@ A beautiful, automated cryptocurrency price tracker that displays live prices wi
 
 ---
 
-**📊 Market Summary:** 5/5 coins tracked | **📈 Avg 24h Change:** -11.12%  
-**🕐 Last Updated:** 2025-11-21 10:36 UTC | **🔄 Auto-updates every ~5 minutes**
+**📊 Market Summary:** 5/5 coins tracked | **📈 Avg 24h Change:** -10.93%  
+**🕐 Last Updated:** 2025-11-21 10:50 UTC | **🔄 Auto-updates every ~5 minutes**
 
 *Data provided by [CoinGecko API](https://www.coingecko.com/en/api) 🦎*
 
