@@ -1,5 +1,5 @@
 import requests
-from datetime import datetime
+from datetime import datetime,timezone
 from pathlib import Path
 import json
 import os
@@ -43,7 +43,7 @@ def load_price_history():
 def save_price_history(prices):
     """Save current prices to history file."""
     history = load_price_history()
-    timestamp = datetime.utcnow().isoformat()
+    timestamp = datetime.now(timezone.utc).isoformat()
     
     for coin, data in prices.items():
         if coin not in history:
@@ -78,7 +78,7 @@ def generate_enhanced_table(prices, coin_ids):
     if not prices:
         return "<p>❌ No price data available</p>"
     
-    current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
+    current_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
     
     # Table header with enhanced styling
     table_html = f"""
@@ -230,7 +230,7 @@ def display_prices(prices, coin_ids):
         else:
             print(f"❓ {coin_name:<12}: {'N/A':>10} (--%)")
     
-    current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
+    current_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
     print(f"\n🕐 Last Updated: {current_time}")
     print("="*60 + "\n")
 
