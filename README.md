@@ -41,7 +41,7 @@ A beautiful, automated cryptocurrency price tracker that displays live prices wi
 
 <tr>
 <td><strong>Bitcoin</strong></td>
-<td align="right"><code>$63,244</code></td>
+<td align="right"><code>$63,183</code></td>
 <td align="right" style="color: #ff0000"><strong>-4.79%</strong></td>
 <td align="center">📉</td>
 <td align="center">❄️ COLD</td>
@@ -49,31 +49,31 @@ A beautiful, automated cryptocurrency price tracker that displays live prices wi
 
 <tr>
 <td><strong>Ethereum</strong></td>
-<td align="right"><code>$1,826</code></td>
-<td align="right" style="color: #ff0000"><strong>-5.03%</strong></td>
+<td align="right"><code>$1,821</code></td>
+<td align="right" style="color: #ff0000"><strong>-5.06%</strong></td>
 <td align="center">💥</td>
 <td align="center">❄️ COLD</td>
 </tr>
 
 <tr>
 <td><strong>Litecoin</strong></td>
-<td align="right"><code>$50.90</code></td>
-<td align="right" style="color: #ff0000"><strong>-3.68%</strong></td>
+<td align="right"><code>$50.52</code></td>
+<td align="right" style="color: #ff0000"><strong>-4.24%</strong></td>
 <td align="center">📉</td>
 <td align="center">❄️ COLD</td>
 </tr>
 
 <tr>
 <td><strong>Solana</strong></td>
-<td align="right"><code>$76.68</code></td>
-<td align="right" style="color: #ff0000"><strong>-4.63%</strong></td>
+<td align="right"><code>$76.75</code></td>
+<td align="right" style="color: #ff0000"><strong>-4.45%</strong></td>
 <td align="center">📉</td>
 <td align="center">❄️ COLD</td>
 </tr>
 
 <tr>
 <td><strong>Cardano</strong></td>
-<td align="right"><code>$0.2573</code></td>
+<td align="right"><code>$0.2571</code></td>
 <td align="right" style="color: #ff0000"><strong>-4.91%</strong></td>
 <td align="center">📉</td>
 <td align="center">❄️ COLD</td>
@@ -84,8 +84,8 @@ A beautiful, automated cryptocurrency price tracker that displays live prices wi
 
 ---
 
-**📊 Market Summary:** 5/5 coins tracked | **📈 Avg 24h Change:** -4.61%  
-**🕐 Last Updated:** 2026-02-24 10:25 UTC | **🔄 Auto-updates every ~5 minutes**
+**📊 Market Summary:** 5/5 coins tracked | **📈 Avg 24h Change:** -4.69%  
+**🕐 Last Updated:** 2026-02-24 11:12 UTC | **🔄 Auto-updates every ~5 minutes**
 
 *Data provided by [CoinGecko API](https://www.coingecko.com/en/api) 🦎*
 
