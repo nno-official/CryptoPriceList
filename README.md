@@ -41,42 +41,42 @@ A beautiful, automated cryptocurrency price tracker that displays live prices wi
 
 <tr>
 <td><strong>Bitcoin</strong></td>
-<td align="right"><code>$74,561</code></td>
-<td align="right" style="color: #00ff00"><strong>+4.95%</strong></td>
-<td align="center">📈</td>
+<td align="right"><code>$74,668</code></td>
+<td align="right" style="color: #00ff00"><strong>+5.71%</strong></td>
+<td align="center">🚀</td>
 <td align="center">🔥 HOT</td>
 </tr>
 
 <tr>
 <td><strong>Ethereum</strong></td>
-<td align="right"><code>$2,375</code></td>
-<td align="right" style="color: #00ff00"><strong>+7.99%</strong></td>
+<td align="right"><code>$2,388</code></td>
+<td align="right" style="color: #00ff00"><strong>+9.38%</strong></td>
 <td align="center">🚀</td>
 <td align="center">🔥 HOT</td>
 </tr>
 
 <tr>
 <td><strong>Litecoin</strong></td>
-<td align="right"><code>$54.23</code></td>
-<td align="right" style="color: #00ff00"><strong>+1.06%</strong></td>
-<td align="center">📈</td>
-<td align="center">✅ UP</td>
-</tr>
-
-<tr>
-<td><strong>Solana</strong></td>
-<td align="right"><code>$85.98</code></td>
-<td align="right" style="color: #00ff00"><strong>+4.28%</strong></td>
+<td align="right"><code>$54.65</code></td>
+<td align="right" style="color: #00ff00"><strong>+3.02%</strong></td>
 <td align="center">📈</td>
 <td align="center">🔥 HOT</td>
 </tr>
 
 <tr>
+<td><strong>Solana</strong></td>
+<td align="right"><code>$86.10</code></td>
+<td align="right" style="color: #00ff00"><strong>+5.21%</strong></td>
+<td align="center">🚀</td>
+<td align="center">🔥 HOT</td>
+</tr>
+
+<tr>
 <td><strong>Cardano</strong></td>
-<td align="right"><code>$0.2436</code></td>
-<td align="right" style="color: #00ff00"><strong>+1.78%</strong></td>
+<td align="right"><code>$0.2444</code></td>
+<td align="right" style="color: #00ff00"><strong>+2.73%</strong></td>
 <td align="center">📈</td>
-<td align="center">✅ UP</td>
+<td align="center">🔥 HOT</td>
 </tr>
 
 </tbody>
@@ -84,8 +84,8 @@ A beautiful, automated cryptocurrency price tracker that displays live prices wi
 
 ---
 
-**📊 Market Summary:** 5/5 coins tracked | **📈 Avg 24h Change:** +4.01%  
-**🕐 Last Updated:** 2026-04-14 06:59 UTC | **🔄 Auto-updates every ~5 minutes**
+**📊 Market Summary:** 5/5 coins tracked | **📈 Avg 24h Change:** +5.21%  
+**🕐 Last Updated:** 2026-04-14 08:48 UTC | **🔄 Auto-updates every ~5 minutes**
 
 *Data provided by [CoinGecko API](https://www.coingecko.com/en/api) 🦎*
 
